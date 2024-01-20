@@ -14,7 +14,6 @@ const {
   deleteUser,
 } = require("../controllers/userController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
-const {sendContact} = require("../utils/sendEmail");
 
 const router = express.Router();
 
@@ -34,7 +33,6 @@ router.route("/password/update").put(isAuthenticatedUser, updatePassword);
 
 router.route("/me/update").put(isAuthenticatedUser, updateProfile);
 
-router.route("/sendmail").post(isAuthenticatedUser, sendContact);
 
 router
   .route("/admin/users")
